@@ -1,0 +1,23 @@
+[[source]]
+url = "https://mirrors.aliyun.com/pypi/simple"
+verify_ssl = true
+name = "pip_conf_index_global"
+
+[packages]
+click = "*"
+httpx = "*"
+selenium = "*"
+sqlalchemy = "*"
+streamlit = "*"
+tenacity = "*"
+tqdm = "*"
+you-get = "*"
+
+[dev-packages]
+pygments = "*"
+python-docx = "*"
+jieba = "*"
+wordcloud = "*"
+
+[requires]
+python_version = "3.9"
