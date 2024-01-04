@@ -81,7 +81,7 @@ class Video:
             f'https://www.bilibili.com/video/{self.bv}',
         ]
         try:
-            return 0 == sp.run(args, capture_output=False).returncode
+            return 0 == sp.run(args, capture_output=True).returncode
         except KeyboardInterrupt:
             shutil.rmtree(directory, ignore_errors=True)
             return False

@@ -140,17 +140,18 @@ if __name__ == '__main__':
 
     with Word('.') \
             .set_default() \
-            .set_docx_compact(True) \
+            .set_docx_compact(False) \
             .set_pygments_style('friendly') \
             .save_later(root/'data'/'copyright.docx') as word:
         # files or directories
-        files = ['app.py', 'script/copyright.py', 'script/word_cloud.py', 'Pipfile', 'Makefile']
-        directories = ['lib']
+        files = ['app.py', 'script/copyright.py', 'script/word_cloud.py', 'Pipfile', 'Makefile'] + ['extra/app.py', 'extra/sync.py']
+        directories = ['lib'] + ['extra/ks']
         for file in files:
             word.add_fancy_by_path(root/file)
         for directory in directories:
             for path in (root/directory).rglob('*'):
-                word.add_fancy_by_path(path)
+                if path.is_file():
+                    word.add_fancy_by_path(path)
         # derivative
         sql = root / 'data' / 'db.sqlite'
         if sql.exists():

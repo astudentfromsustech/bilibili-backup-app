@@ -15,7 +15,7 @@ def sync(ids: t.Tuple[int, ...], fast: bool) -> None:
     from tqdm import tqdm
 
     from .local import Session
-    from .remote import Favorite, Favorites
+    from .remote import Favorite
 
     with Session() as session:
         for id in ids:

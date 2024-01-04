@@ -23,10 +23,11 @@ with Session() as session:
         if not videos:
             break
         for ith, video in enumerate(videos):
-            print('', ith, video.title, sep='\t')
+            print('', ith, video.public, video.title, sep='\t')
         number = get_int('Video number: ')
         if number is None or number not in range(len(videos)):
             break
+        video = videos[number]
         print('', video.id, video.title, sep='\t')
         print('', f'Public: {video.public} -> {not video.public}', sep='\t')
         video.public = not video.public
